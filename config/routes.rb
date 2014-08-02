@@ -5,6 +5,11 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy', as: 'logout'
 
+  post "oauth/callback" => "oauths#callback"
+  get "oauth/callback" => "oauths#callback" # for use with Github
+  get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
+  delete "oauth/:provider" => "oauths#destroy", :as => :delete_oauth
+
   root 'todos#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
