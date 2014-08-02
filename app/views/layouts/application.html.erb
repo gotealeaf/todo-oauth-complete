@@ -8,6 +8,19 @@
 </head>
 <body>
 
+<%= render 'shared/session_links' %>
+
+<% if flash[:alert] %>
+  <p class="flash-error" style="border: 1px solid red; padding: 2px; display: inline-block;">
+    <%= flash[:alert] %>
+  </p>
+<% end %>
+<% if flash[:notice] %>
+  <p class="flash-notice" style="border: 1px solid green; padding: 2px; display: inline-block;">
+    <%= flash[:notice] %>
+  </p>
+<% end %>
+
 <%= yield %>
 
 </body>

@@ -1,0 +1,8 @@
+<div style="text-align: right;">
+  <% if logged_in? %>
+    Currently logged in as: <%= current_user.email %> |
+    <%= link_to 'Logout', logout_path %>
+  <% else %>
+    <%= link_to 'Login', login_path %>
+  <% end %>
+</div>
